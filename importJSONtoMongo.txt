@@ -1,0 +1,15 @@
+    const data = JSON.parse(fs.readFileSync('routes/files/ProductsData.json', 'utf-8'))
+// console.log(data)
+
+const importData = async () => {
+    try{
+        // const data = JSON.parse(fs.readFileSync('/files/ProductsData.json', 'utf-8'))
+        await Products.create(data.products)
+        console.log('data successfully imported')
+        process.exit()
+    }
+    catch (err){
+        console.log('Error: ', err)
+    }
+}
+importData()
